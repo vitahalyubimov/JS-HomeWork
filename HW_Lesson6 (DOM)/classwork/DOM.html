@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>DOM</title>
+        <style>
+            form{
+                margin: 0 auto;
+                width: 200px;
+                padding: 20px;
+                box-shadow: 5px 5px 15px lightgray;
+                background: lightgray;
+            }
+            input{
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+		<form>
+            <input type="text"
+                       autocomplete="on"
+                       placeholder="Имя"/>
+
+			<br/>
+				<input type="text" placeholder="Логин" />
+			<br/>
+				<input type="email" pattern="\w+@\w+\.\w+" placeholder="Mail" />
+			<br/>
+				<input type="password" id="pass_first" placeholder="Пароль" pattern="\d{6,}"/>
+			<br/>
+				<input type="password" id="pass_second" placeholder="Пароль" pattern="\d{6,}"/>
+			<br/>
+			     <input type="button" value="Ок" onclick="check_pass();"/>
+		</form>
+		<script>
+			function check_pass()
+			{
+				var pass_first = document.getElementById("pass_first");
+                var pass_second = document.getElementById("pass_second");
+                if (pass_first.value.length < 6)
+                {
+                    pass_first.style.boxShadow = "0 0 5px red";
+                    return false;
+                }else if (pass_second.value.length < 6)
+                {
+                    pass_second.style.boxShadow = "0 0 5px red";
+                    return false;
+                }
+                if (pass_first.value != pass_second.value)
+                {
+                    document.write("<p>");
+                    document.write("Пароли не совпадают");
+                    document.write("</p>");
+                }
+                var allitem = document.querySelectorAll("input");
+                console.log(allitem);
+                for (let i = 0; i < allitem.length; i++)
+                {
+                    allitem[i].value = "";
+                }
+                
+			}
+		</script>
+    </body>
+</html>
