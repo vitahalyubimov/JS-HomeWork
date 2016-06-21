@@ -1,6 +1,8 @@
 let imgs = [10];
 let div_id_img = document.getElementById("img");
 let idx_next_img  = 0;
+let timer;
+
 imgs[0] = "url(http://tecnoinnovador.com/wp-content/uploads/2016/01/internet.png)";
 imgs[1] = "url(http://demo.all4coding.com/magento/media/background/background_8.jpg)";
 imgs[2] = "url(http://hdwallpapershdpics.com/wp-content/uploads/2015/10/HD-Pictures-23.jpg)";
@@ -43,6 +45,7 @@ function click_btn_left(self)
 	else
 		idx_next_img--;
     div_id_img.style.backgroundImage = imgs[idx_next_img];
+   
     selected_point(idx_next_img);
 }
 function click_btn_right()
@@ -52,10 +55,17 @@ function click_btn_right()
 	else
 		idx_next_img++;
 	div_id_img.style.backgroundImage = imgs[idx_next_img];
+    
 	selected_point(idx_next_img);
 }
-function show()
+function change_interval(self)
 {
-	console.log("Приве мир");
+    clearInterval(timer);
+    if (self.value == "")
+        self.value = "1";
+    timer = setInterval(click_btn_right, 1000 * self.value);
 }
-setInterval(show(), 1000);
+(function(){
+    //изначальный интервал 3сек
+	timer = setInterval(click_btn_right, 1000 * 3);
+}())
