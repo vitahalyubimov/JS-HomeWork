@@ -37,6 +37,7 @@ body, html{
     margin: 0 auto;
     background-color: black;
     height: 360px;
+    z-index: 0;
 }
 #pointers{
     width: 130px;
@@ -68,4 +69,7 @@ input[type="number"]{
 }
 div#pointers pre{
     margin-top: -10px;
+}
+#body{
+    z-index: 1;
 }

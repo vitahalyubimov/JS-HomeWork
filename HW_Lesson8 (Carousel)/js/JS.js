@@ -55,13 +55,12 @@ function click_btn_right()
 	else
 		idx_next_img++;
 	div_id_img.style.backgroundImage = imgs[idx_next_img];
-    
 	selected_point(idx_next_img);
 }
 function change_interval(self)
 {
     clearInterval(timer);
-    if (self.value == "")
+    if (self.value == "" || self.value <= 0 )
         self.value = "1";
     timer = setInterval(click_btn_right, 1000 * self.value);
 }
