@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ToDo List</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <h2>Здесь отображены ваши заметки</h2>
+        <div id = "show-nodes"></div>
+        <div id = "field-add-notes">
+            <form>
+<!--                <input type="text" name="date" placeholder="Дата" required="required"/>-->
+                <input type="date" name="date" required="required"/>
+                <br />
+<!--                <input type="text" name="time" placeholder="Время" required="required"/><br />-->
+                <input type="time" name="time" required="required" />
+                <br />
+                <textarea rows="10" cols="30" placeholder="Добавьте примечание" id="text-nodes"></textarea><br />
+                <input class = "btn" type="submit" value="Добавить">
+                <br />
+            </form>
+            <button class="btn"id="clear-nodes">Очистить все заметки</button>
+        </div>
+        
+        <script src = "js/script.js"></script>
+    </body>
+</html>
